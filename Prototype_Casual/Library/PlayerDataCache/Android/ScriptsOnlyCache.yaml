@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraFolow
+    - CameraZoom
     - FixedJoystick
     - PlayerController
     - Pointer
@@ -83,49 +84,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11282}
     - Class: 114
-      Script: {instanceID: 11352}
+      Script: {instanceID: 11356}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11488}
+      Script: {instanceID: 11496}
     - Class: 114
-      Script: {instanceID: 11612}
+      Script: {instanceID: 11622}
     - Class: 114
-      Script: {instanceID: 11906}
+      Script: {instanceID: 11926}
     - Class: 114
-      Script: {instanceID: 11938}
+      Script: {instanceID: 11942}
     - Class: 114
-      Script: {instanceID: 12092}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 12192}
+      Script: {instanceID: 12120}
     - Class: 114
-      Script: {instanceID: 12210}
+      Script: {instanceID: 12222}
     - Class: 114
-      Script: {instanceID: 12330}
+      Script: {instanceID: 12240}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12364}
     - Class: 114
-      Script: {instanceID: 12566}
+      Script: {instanceID: 12470}
     - Class: 114
-      Script: {instanceID: 12582}
+      Script: {instanceID: 12606}
     - Class: 114
-      Script: {instanceID: 12648}
+      Script: {instanceID: 12622}
     - Class: 114
-      Script: {instanceID: 12796}
+      Script: {instanceID: 12692}
     - Class: 114
-      Script: {instanceID: 12854}
+      Script: {instanceID: 12846}
     - Class: 114
-      Script: {instanceID: 12862}
+      Script: {instanceID: 12904}
     - Class: 114
-      Script: {instanceID: 12872}
+      Script: {instanceID: 12912}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 12922}
     - Class: 114
-      Script: {instanceID: 13146}
+      Script: {instanceID: 13092}
     - Class: 114
-      Script: {instanceID: 13252}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13286}
+      Script: {instanceID: 13312}
+    - Class: 114
+      Script: {instanceID: 13346}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -135,6 +138,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -317,7 +324,7 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
-      Hash: 7c4d61ba679beaa5d71821c8c9d31078
+      Hash: bc2ce8361b5dfb73990d80f614506a9f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraFolow
@@ -455,6 +462,12 @@ ScriptsOnlyBuild:
     className: GeneralSequencer
   - hash:
       serializedVersion: 2
+      Hash: dd43be39b4dffa1d39c2e284355657ba
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraZoom
+  - hash:
+      serializedVersion: 2
       Hash: dd7520b7d4e690e8c593273e7b9fbe80
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -557,7 +570,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: d39ddc5ef0774174d201b48902100415
+      Hash: c196bcf413acf3963622d4035559075d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -737,12 +750,6 @@ ScriptsOnlyBuild:
     className: SimpleScript
   - hash:
       serializedVersion: 2
-      Hash: 528e9858840cb8370d93939fff6b42d9
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: NewPlayerController
-  - hash:
-      serializedVersion: 2
       Hash: eb2a9f75918f2ec46c2bd527aca290ca
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -785,7 +792,7 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
-      Hash: d410d854157b7b4c3233d2e0afb4a056
+      Hash: 06d26f2eab96d4f125f33611d7e7825a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pointer
@@ -809,7 +816,7 @@ ScriptsOnlyBuild:
     className: SkewTextExample
   - hash:
       serializedVersion: 2
-      Hash: 8211f8cd1194a7d1bed2fc75c05f98da
+      Hash: 6ef58768fa7b119e97f6a7241d33e2d9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shop_Point

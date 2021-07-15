@@ -8,7 +8,7 @@ namespace ShopSystem
     {
         [SerializeField] private float rotSpeed;
 
-        void Update()
+        void FixedUpdate()
         {
             transform.Rotate(0, rotSpeed * Time.deltaTime, 0, Space.Self);
         }

@@ -35,7 +35,7 @@ namespace ShopSystem
 
                 slider.enabled = true;
 
-                Debug.Log("Саламалейкум делаю");
+                Debug.Log("Pick up");
             }
             else if (other.gameObject.CompareTag("PickedUp") && slider.value >= 1)
             {
@@ -46,7 +46,7 @@ namespace ShopSystem
                 GameObject child = this.transform.GetChild(0).gameObject;
                 LeanTween.alpha(child, 0.2f, targetProgress);
 
-                Debug.Log("Саламалейкум сделал");
+                Debug.Log("Catch up");
             }
         }
         private void OnTriggerExit(Collider other)
@@ -98,7 +98,7 @@ namespace ShopSystem
             {
                 PickUp();
             }
-            Debug.Log("Саламалейкум сделал");
+            Debug.Log("Catch up");
         }
 
         private void OnDrawGizmos()

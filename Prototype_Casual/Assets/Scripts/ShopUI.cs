@@ -32,7 +32,7 @@ namespace ShopSystem
 
             player.dataIndex = currentIndex;
             player.SetSkin();
-
+            
             SetCharacterInfo();
 
             unlockBtn.onClick.AddListener(()=>UnlockSelectBtnMethcod());
@@ -67,9 +67,11 @@ namespace ShopSystem
             totalCoinsText.text = "" + shopData.cash;
             characterNameText.text = shopData.shopItems[currentIndex].ItemName;
             int currentLevel = shopData.shopItems[currentIndex].unlockedLevel;
-            levelText.text = "Level:" + (currentLevel + 1);
-            speedText.text = "Speed:" + shopData.shopItems[currentIndex].characterLevel[currentLevel].speed;
-            accelerarionText.text = "Acc" + shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
+            levelText.text = "Level: " + (currentLevel + 1);
+            speedText.text = "Speed: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].speed;
+            accelerarionText.text = "Acc: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
+
+            player.speed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed
 
             saveLoadData.SaveData();
         }

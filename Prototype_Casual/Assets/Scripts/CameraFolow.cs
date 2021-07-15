@@ -8,6 +8,8 @@ public class CameraFolow : MonoBehaviour
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
+    public bool isZoomed = true;
+
     private void FixedUpdate()
     {
         Vector3 desirePosition = target.position + offset;
@@ -15,7 +17,7 @@ public class CameraFolow : MonoBehaviour
         transform.position = smoothedPosition;
 
         //transform.LookAt(target); //укачивает
+        
     }
-
-
+    
 }

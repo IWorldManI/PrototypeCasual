@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     public GameObject[] characterModels;
 
+    
+
+
+    public Camera Cam;
+    
     public int dataIndex;
 
     public int trash;
@@ -53,12 +58,16 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movementDirection = new Vector3(xMovement, 0, zMovement);
         movementDirection.Normalize();
+        
 
-        if(movementDirection != Vector3.zero)
+        if (movementDirection != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
         }
+        
     }
+    
+   
 }
 
