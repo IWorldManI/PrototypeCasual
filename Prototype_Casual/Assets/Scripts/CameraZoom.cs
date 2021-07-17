@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public Camera cam;
-    public int zoom = 65;
-    public int normal = 60;
-    public int smooth = 1;
+    public Camera cam;      //camera reference
+    public int zoom = 65;   //value field of view in zoom
+    public int normal = 60; //normal value field of view 
+    public int smooth = 1;  //variable is multiplied by time for smooth changing camera field of view
 
     public CameraFolow camFolow;
 
-    
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))            //if button pressed camera zoom out     
         {
-            camFolow.isZoomed = !camFolow.isZoomed;
+            camFolow.isZoomed = !camFolow.isZoomed; 
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))         //if button realised camera zoom in
         {
             camFolow.isZoomed = false;
         }
-        if (camFolow.isZoomed)
+        if (camFolow.isZoomed)                        
         {
             ZoomOut();
         }
@@ -31,11 +30,11 @@ public class CameraZoom : MonoBehaviour
             ZoomIn();
         }
     }
-    void ZoomOut()
+    void ZoomOut() //zoom out function
     {
         GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);
     }
-    void ZoomIn()
+    void ZoomIn() //zoom in function
     {
         GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normal, Time.deltaTime * smooth);
     }
