@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ShopSystem;
+using System;
 
 
 public class PlayerController : MonoBehaviour
@@ -11,8 +12,6 @@ public class PlayerController : MonoBehaviour
     public Joystick joystick;
     public float rotationSpeed;
     public GameObject[] characterModels;
-
-    
 
 
     public Camera Cam;
@@ -28,24 +27,11 @@ public class PlayerController : MonoBehaviour
     }
     public void SetSkin()
     {
-        if (dataIndex == 0)
+        for (int i=0; i < characterModels.Length; i++)  //disable all skins 
         {
-            characterModels[0].SetActive(true);
-            characterModels[1].SetActive(false);
-            characterModels[2].SetActive(false);
+            characterModels[i].SetActive(false);
         }
-        else if (dataIndex == 1) 
-        {
-            characterModels[0].SetActive(false);
-            characterModels[1].SetActive(true);
-            characterModels[2].SetActive(false);
-        }
-        else if (dataIndex == 2)
-        {
-            characterModels[0].SetActive(false);
-            characterModels[1].SetActive(false);
-            characterModels[2].SetActive(true);
-        }
+        characterModels[dataIndex].SetActive(true);     //enable selected skin
 
     }
     private void FixedUpdate()
@@ -56,18 +42,20 @@ public class PlayerController : MonoBehaviour
         
         transform.position += new Vector3(xMovement, 0f, zMovement) * speed * Time.fixedDeltaTime;
 
+        //rb.velocity += new Vector3(xMovement, 0f, zMovement) * speed / 10;
+
         Vector3 movementDirection = new Vector3(xMovement, 0, zMovement);
         movementDirection.Normalize();
         
 
+
         if (movementDirection != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);          
         }
         
     }
     
-   
 }
 
