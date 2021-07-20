@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - ShopSystem.SaveLoadData
     - ShopSystem.ShopUI
     - Shop_Point
+    - Spawner
     - UI_Manager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -104,31 +105,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12240}
     - Class: 114
-      Script: {instanceID: 12364}
+      Script: {instanceID: 12290}
     - Class: 114
-      Script: {instanceID: 12470}
+      Script: {instanceID: 12366}
     - Class: 114
-      Script: {instanceID: 12606}
+      Script: {instanceID: 12472}
     - Class: 114
-      Script: {instanceID: 12622}
+      Script: {instanceID: 12608}
     - Class: 114
-      Script: {instanceID: 12692}
+      Script: {instanceID: 12624}
     - Class: 114
-      Script: {instanceID: 12846}
+      Script: {instanceID: 12694}
     - Class: 114
-      Script: {instanceID: 12904}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12912}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 12922}
+      Script: {instanceID: 12914}
     - Class: 114
-      Script: {instanceID: 13092}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13094}
     - Class: 114
-      Script: {instanceID: 13312}
+      Script: {instanceID: 13208}
     - Class: 114
-      Script: {instanceID: 13346}
+      Script: {instanceID: 13314}
+    - Class: 114
+      Script: {instanceID: 13348}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -204,7 +207,7 @@ ScriptsOnlyBuild:
     className: GeneralBasics2d
   - hash:
       serializedVersion: 2
-      Hash: ef99d35a33d98bb718a466d00cc975d5
+      Hash: 5866a3f2442755496b3a7c014f9803be
     assemblyName: Assembly-CSharp.dll
     namespaceName: ShopSystem
     className: ShopUI
@@ -570,7 +573,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: c196bcf413acf3963622d4035559075d
+      Hash: dee30056cab04324caeb220e1f90be8f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -580,6 +583,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 9c992170b2a96ff1e0204903c04f5402
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spawner
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -816,7 +825,7 @@ ScriptsOnlyBuild:
     className: SkewTextExample
   - hash:
       serializedVersion: 2
-      Hash: 6ef58768fa7b119e97f6a7241d33e2d9
+      Hash: 5284b9967305bbfcc5649ff3ae0b87b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shop_Point

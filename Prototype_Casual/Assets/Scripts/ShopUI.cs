@@ -14,6 +14,8 @@ namespace ShopSystem
         public Button unlockBtn, upgradeBtn, nextBtn, previousBtn;
         public PlayerController player;
         public SaveLoadData saveLoadData;
+        public Shop_Point shopPoint;
+        
 
         public int priceOfTrash;
 
@@ -51,12 +53,13 @@ namespace ShopSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Player") && player.trash != 0) 
             {
                 shopData.cash += player.trash * priceOfTrash;
                 totalCoinsText.text = "" + shopData.cash;
                 player.trash = 0;
                 player.trashTotal.text = "" + player.trash;
+                shopPoint.AnimationShop();
                 saveLoadData.SaveData();
             }
             
@@ -70,8 +73,11 @@ namespace ShopSystem
             levelText.text = "Level: " + (currentLevel + 1);
             speedText.text = "Speed: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].speed;
             accelerarionText.text = "Acc: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
-
-            player.speed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed
+            if(player.dataIndex==currentIndex)
+            {
+                player.speed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed (Fixed)
+            }
+            //player.speed = shopData.shopItems[selectedIndex].characterLevel[currentLevel].speed; //update info of speed car
 
             saveLoadData.SaveData();
         }
@@ -99,7 +105,7 @@ namespace ShopSystem
                 characterModels[currentIndex].SetActive(false);
                 currentIndex--;
                 characterModels[currentIndex].SetActive(true);
-                SetCharacterInfo();
+                SetCharacterInfo(); //update 
 
                 if (currentIndex == 0) previousBtn.interactable = false;
 
@@ -107,6 +113,7 @@ namespace ShopSystem
 
                 UnlockBtnStatus();
                 UpgradeBtnStatus();
+
             }
         }
         private void UnlockSelectBtnMethcod()
@@ -115,6 +122,7 @@ namespace ShopSystem
             if (shopData.shopItems[currentIndex].isUnlocked)
             {
                 yesSelected = true;
+                SetCharacterInfo(); //update
             }
             else
             {
@@ -126,6 +134,7 @@ namespace ShopSystem
                     shopData.shopItems[currentIndex].isUnlocked=true;
                     UpgradeBtnStatus();
                     saveLoadData.SaveData();
+                    SetCharacterInfo();  //update
                 }
             }
 
@@ -139,6 +148,7 @@ namespace ShopSystem
                 player.dataIndex = currentIndex;
                 player.SetSkin();
                 saveLoadData.SaveData();
+                SetCharacterInfo(); //update speed
             }
         }
         private void UpgradeBtnMethcod()
