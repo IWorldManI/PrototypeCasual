@@ -30,8 +30,7 @@ namespace ShopSystem
                 
                 IncrementProgress(1f);
 
-                GameObject child = this.transform.GetChild(0).gameObject;
-                LeanTween.alpha(child, 1f, targetProgress);
+                FadeInCircle();
 
                 slider.enabled = true;
 
@@ -42,10 +41,8 @@ namespace ShopSystem
                 PickUp();
 
                 Destroy(other.gameObject);
-                
 
-                GameObject child = this.transform.GetChild(0).gameObject;
-                LeanTween.alpha(child, 0.2f, targetProgress);
+                FadeOutCircle();
 
                 Debug.Log("Catch up");
             }
@@ -56,12 +53,10 @@ namespace ShopSystem
             {
                 slider.value = 0f;
 
-                GameObject child = this.transform.GetChild(0).gameObject;
-                LeanTween.alpha(child, 0.2f, targetProgress);
-                                              
+                FadeOutCircle();
+
                 slider.enabled = false;
             }
-
 
         }
 
@@ -80,6 +75,16 @@ namespace ShopSystem
 
         }
 
+        void FadeInCircle()
+        {
+            GameObject child = this.transform.GetChild(0).gameObject;
+            LeanTween.alpha(child, 1f, targetProgress);
+        }
+        void FadeOutCircle()
+        {
+            GameObject child = this.transform.GetChild(0).gameObject;
+            LeanTween.alpha(child, 0.2f, targetProgress);
+        }
         void IncrementProgress(float newProgress)
         {
             targetProgress = slider.value + newProgress;

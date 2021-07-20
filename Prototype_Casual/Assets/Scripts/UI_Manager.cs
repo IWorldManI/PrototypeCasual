@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UI_Manager : MonoBehaviour
 {
-    public RectTransform main, shop;
+    public RectTransform main, shop,shopButton;
     public GameObject characterHolder;
     
 
@@ -24,5 +24,12 @@ public class UI_Manager : MonoBehaviour
         LeanTween.moveY(characterHolder, 2f, .7f);
 
     }
-
+    public void ShopButtonShow()
+    {
+        LeanTween.moveY(shopButton, -800f, .5f);
+    }
+    public void ShopButtonHide()
+    {
+        LeanTween.moveY(shopButton, -2000f, .5f);
+    }
 }

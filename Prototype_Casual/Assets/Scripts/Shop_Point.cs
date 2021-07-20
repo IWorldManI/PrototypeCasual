@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class Shop_Point : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
-    public GameObject circle;
-    public GameObject shopObject;
-    public Button shopButton;
-    public Transform coinTrade;
+    [SerializeField] GameObject circle;
+    [SerializeField] GameObject shopObject;
+    [SerializeField] Button shopButton;
+    [SerializeField] Transform coinTrade;
 
     [SerializeField] float tweenTime;
     [SerializeField] float tweenScale;
@@ -21,8 +21,8 @@ public class Shop_Point : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            shopButton.gameObject.SetActive(true);
-            //ui_manager.Shop_HUD();
+            ui_manager.ShopButtonShow();
+            //shopButton.gameObject.SetActive(true);
         }
     }
 
@@ -30,7 +30,8 @@ public class Shop_Point : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            shopButton.gameObject.SetActive(false);
+            ui_manager.ShopButtonHide();
+            //shopButton.gameObject.SetActive(false);
         }
     }
 

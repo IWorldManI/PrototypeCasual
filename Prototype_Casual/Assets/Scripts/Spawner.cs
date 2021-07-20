@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject[] coinPickup;
-    public float timeToRespawn;
-    public bool spawning=true;
-    [SerializeField] int randomIndex;
+
+    [SerializeField] GameObject[] coinPickup;
+    [SerializeField] public float timeToRespawn; //mb buy upgrade?
+    [SerializeField] private bool spawning=true;
+    [SerializeField] private int randomIndex;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(timeToRespawn);
+        yield return new WaitForSeconds(timeToRespawn = Random.Range(10f,15f));
         SpawnBox();
     }
 }
