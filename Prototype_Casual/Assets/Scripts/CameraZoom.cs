@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraZoom : MonoBehaviour
 {
     public Camera cam;      //camera reference
-    public int zoom = 65;   //value field of view in zoom
-    public int normal = 60; //normal value field of view 
+    public int zoom = 90;   //value field of view in zoom
+    public int normal = 70; //normal value field of view 
     public int smooth = 1;  //variable is multiplied by time for smooth changing camera field of view
 
     public CameraFolow camFolow;

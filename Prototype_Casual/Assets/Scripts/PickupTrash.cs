@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 namespace ShopSystem
 {
     public class PickupTrash : MonoBehaviour
     {
-        [SerializeField]
-
-        
+        [SerializeField] Transform target;
         public PlayerController player;     //add amount here
-        public float fieldOfPickup;         
-        public Slider slider;               //reference slider
+        public float fieldOfPickup;
+        [SerializeField] Slider slider;               //reference slider
         public float FillSpeed = 10f;       //speed how fast can you pick up an item 
-        private float targetProgress = 0;
+        [SerializeField] private float targetProgress = 0;
+        [SerializeField] float speedOfBoxFly;
+        [SerializeField] GameObject boxPrefab;
 
         
         
@@ -27,7 +28,6 @@ namespace ShopSystem
         {
             if (other.gameObject.CompareTag("PickedUp") && slider.value < 1)
             {
-                
                 IncrementProgress(1f);
 
                 FadeInCircle();
@@ -43,6 +43,9 @@ namespace ShopSystem
                 Destroy(other.gameObject);
 
                 FadeOutCircle();
+
+                PickUpBoxAnim(other.transform.position, () => { player.PickUpAnimation(); });
+                //player.PickUpAnimation();
 
                 Debug.Log("Catch up");
             }
@@ -63,12 +66,11 @@ namespace ShopSystem
 
         public void PickUp()
         {
-            GameObject child = this.transform.GetChild(0).gameObject;
-            LeanTween.alpha(child, 0.2f, .5f);
+            FadeOutCircle();
 
             //Collider[] objects = Physics.OverlapSphere(transform.position, fieldOfPickup); test
 
-            player.trash += Random.Range(1, 5);         //add amount of box/trash/something
+            player.trash += UnityEngine.Random.Range(1, 5);         //add amount of box/trash/something
             player.trashTotal.text = "" + player.trash; //update raised items
 
             slider.value = 0f;
@@ -95,7 +97,30 @@ namespace ShopSystem
             }
         }
 
+        //Animation for box cathcing
 
+        void PickUpBoxAnim(Vector3 _initial, Action onComplete)
+        {
+            Vector3 targetPos = new Vector3(target.position.x, target.position.y + 1, target.position.z - 2);
+            GameObject _box = Instantiate(boxPrefab,player.transform);
+            Debug.Log(_box.transform);
+
+            StartCoroutine(MoveBox(_box.transform, _initial, targetPos, onComplete));
+        }
+
+        IEnumerator MoveBox(Transform obj, Vector3 startPos, Vector3 endPos, Action onComplete)
+        {
+            float time = 0;
+            while (time < 1)
+            {
+                time += speedOfBoxFly * Time.deltaTime;
+                obj.position = Vector3.Lerp(startPos, endPos, time);
+                yield return new WaitForEndOfFrame();
+            }
+            onComplete.Invoke();
+            Destroy(obj.gameObject);
+        }
+        
         private void OnDrawGizmos()            //draw fizmos in editor
         {
             Gizmos.color = Color.red;

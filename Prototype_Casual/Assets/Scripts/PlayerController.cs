@@ -8,6 +8,8 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject characterHolder;
+    [SerializeField] float tweenScale;
     public float speed;
     public Joystick joystick;
     public float rotationSpeed;
@@ -63,6 +65,10 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    
+    public void PickUpAnimation()
+    {
+        characterHolder.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        LeanTween.scale(characterHolder, new Vector3(0.8f, 0.8f, 0.8f) * tweenScale, .8f).setEasePunch();
+    }
 }
 

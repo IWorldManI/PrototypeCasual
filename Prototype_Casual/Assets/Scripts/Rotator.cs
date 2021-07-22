@@ -7,10 +7,11 @@ namespace ShopSystem
     public class Rotator : MonoBehaviour
     {
         [SerializeField] private float rotSpeed;
+        [SerializeField] private Vector3 rotDirection;
 
         void FixedUpdate()
         {
-            transform.Rotate(0, rotSpeed * Time.deltaTime, 0, Space.Self);
+            transform.Rotate(rotDirection.x, rotSpeed * Time.deltaTime, rotDirection.z, Space.Self);
         }
     }
 
