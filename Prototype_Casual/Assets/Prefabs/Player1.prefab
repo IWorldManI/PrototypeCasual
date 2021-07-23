@@ -113,10 +113,106 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a433ceea47923874e984df4a96e1ff19, type: 2}
+    - target: {fileID: -4471835881089955330, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4471835881089955330, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.493
+      objectReference: {fileID: 0}
+    - target: {fileID: -4471835881089955330, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -2385441243849174885, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -32055715330001192, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452980874015489527, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 452980874015489527, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.809
+      objectReference: {fileID: 0}
+    - target: {fileID: 452980874015489527, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.436
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
         type: 3}
       propertyPath: m_Name
       value: MinivanV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925761868048205990, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537823174668025481, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537823174668025481, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.809
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537823174668025481, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.443
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037367076419664684, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037367076419664684, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037367076419664684, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037367076419664684, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 8159774037918051741, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+    - target: {fileID: 7504525784596710728, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504525784596710728, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.493
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504525784596710728, guid: 4474cf470b6d7264bb08bbea8e9b8d53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.432
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4474cf470b6d7264bb08bbea8e9b8d53, type: 3}

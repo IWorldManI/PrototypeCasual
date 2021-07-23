@@ -15,6 +15,7 @@ namespace ShopSystem
         public PlayerController player;
         public SaveLoadData saveLoadData;
         public Shop_Point shopPoint;
+        public PickupTrash pickupCircle;
         
 
         public int priceOfTrash;
@@ -72,10 +73,12 @@ namespace ShopSystem
             int currentLevel = shopData.shopItems[currentIndex].unlockedLevel;
             levelText.text = "Level: " + (currentLevel + 1);
             speedText.text = "Speed: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].speed;
-            accelerarionText.text = "Acc: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
+            accelerarionText.text = "Zone: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
             if(player.dataIndex==currentIndex)
             {
                 player.speed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed (Fixed)
+                pickupCircle.fieldOfPickup = shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
+                pickupCircle.UpdateCircleRadius();
             }
             //player.speed = shopData.shopItems[selectedIndex].characterLevel[currentLevel].speed; //update info of speed car
 

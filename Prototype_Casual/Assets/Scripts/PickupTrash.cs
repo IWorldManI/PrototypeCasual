@@ -8,6 +8,7 @@ namespace ShopSystem
     public class PickupTrash : MonoBehaviour
     {
         [SerializeField] Transform target;
+        [SerializeField] Collider sphereCollider;
         public PlayerController player;     //add amount here
         public float fieldOfPickup;
         [SerializeField] Slider slider;               //reference slider
@@ -21,7 +22,8 @@ namespace ShopSystem
 
         private void Start()
         {
-            GameObject child = this.transform.GetChild(0).gameObject;       //do child for spawner
+            GameObject child = this.transform.GetChild(0).gameObject;       //do child circle
+            UpdateCircleRadius();
         }
 
         private void OnTriggerStay(Collider other)
@@ -121,6 +123,10 @@ namespace ShopSystem
             Destroy(obj.gameObject);
         }
         
+        public void UpdateCircleRadius()
+        {
+            sphereCollider.transform.localScale = new Vector3(fieldOfPickup, fieldOfPickup, fieldOfPickup);
+        }
         private void OnDrawGizmos()            //draw fizmos in editor
         {
             Gizmos.color = Color.red;

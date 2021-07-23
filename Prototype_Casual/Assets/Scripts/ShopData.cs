@@ -28,7 +28,7 @@ namespace ShopSystem
     {
         public int unlockCost;
         public int speed;
-        public int acceleration;
+        public float acceleration;
 
     }
 }
