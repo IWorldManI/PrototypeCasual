@@ -17,6 +17,10 @@ public class Shop_Point : MonoBehaviour
 
     public UI_Manager ui_manager;
 
+    private void Start()
+    {
+        Vibration.Init();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -44,6 +48,7 @@ public class Shop_Point : MonoBehaviour
     {
         Instantiate(coinTrade, transform.position,transform.rotation * Quaternion.Euler(-90f,0f,0f));
         shopObject.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        LeanTween.scale(shopObject, new Vector3(0.8f, 0.8f, 0.8f) * tweenScale, tweenTime).setEasePunch();
+        LeanTween.scale(shopObject, new Vector3(0.8f, 0.8f, 0.8f) * tweenScale, tweenTime).setEasePunch(); //cute animation for sell boxes
+        Vibration.VibratePeek(); //add vibro to sell boxes
     }
 }

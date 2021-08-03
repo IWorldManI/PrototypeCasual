@@ -9,21 +9,27 @@ namespace ShopSystem
     {
         [SerializeField] Transform target;
         [SerializeField] Collider sphereCollider;
-        public PlayerController player;     //add amount here
+        public PlayerController player;                                     //add amount here
         public float fieldOfPickup;
-        [SerializeField] Slider slider;               //reference slider
-        public float FillSpeed = 10f;       //speed how fast can you pick up an item 
+        [SerializeField] Slider slider;                                     //reference slider
+        public float FillSpeed = 10f;                                       //speed how fast can you pick up an item 
         [SerializeField] private float targetProgress = 0;
         [SerializeField] float speedOfBoxFly;
         [SerializeField] GameObject boxPrefab;
+        [SerializeField] int priceOfBox;
 
         
         
 
         private void Start()
         {
+            Vibration.Init();                                               //initialization vibro package 
             GameObject child = this.transform.GetChild(0).gameObject;       //do child circle
             UpdateCircleRadius();
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            priceOfBox = other.GetComponent<ItemCost>().boxCost;
         }
 
         private void OnTriggerStay(Collider other)
@@ -31,23 +37,16 @@ namespace ShopSystem
             if (other.gameObject.CompareTag("PickedUp") && slider.value < 1)
             {
                 IncrementProgress(1f);
-
                 FadeInCircle();
-
                 slider.enabled = true;
-
                 Debug.Log("Pick up");
             }
             else if (other.gameObject.CompareTag("PickedUp") && slider.value >= 1)
             {
                 PickUp();
-
                 Destroy(other.gameObject);
-
                 FadeOutCircle();
-
-                PickUpBoxAnim(other.transform.position, () => { player.PickUpAnimation(); });
-                //player.PickUpAnimation();
+                PickUpBoxAnim(other.transform.position, () => { player.PickUpAnimation(); Vibration.VibratePop(); }); //after collecting an item, animation and vibration are played
 
                 Debug.Log("Catch up");
             }
@@ -57,9 +56,7 @@ namespace ShopSystem
             if (other.CompareTag("PickedUp"))
             {
                 slider.value = 0f;
-
                 FadeOutCircle();
-
                 slider.enabled = false;
             }
 
@@ -68,28 +65,26 @@ namespace ShopSystem
 
         public void PickUp()
         {
-            FadeOutCircle();
+            FadeOutCircle();                                        //play fade out animation with LeanTween
 
-            //Collider[] objects = Physics.OverlapSphere(transform.position, fieldOfPickup); test
+            player.trash += priceOfBox;         //add amount of box/trash/something
+            player.trashTotal.text = "" + player.trash;             //update raised items
+            slider.value = 0f;                                      //reset value if player goes away
 
-            player.trash += UnityEngine.Random.Range(1, 5);         //add amount of box/trash/something
-            player.trashTotal.text = "" + player.trash; //update raised items
-
-            slider.value = 0f;
-
+            //Collider[] objects = Physics.OverlapSphere(transform.position, fieldOfPickup); //test WIP
         }
 
-        void FadeInCircle()
+        void FadeInCircle()                                         //fade in animation 
         {
             GameObject child = this.transform.GetChild(0).gameObject;
             LeanTween.alpha(child, 1f, targetProgress);
         }
-        void FadeOutCircle()
+        void FadeOutCircle()                                        //fade out animation
         {
             GameObject child = this.transform.GetChild(0).gameObject;
             LeanTween.alpha(child, 0.2f, targetProgress);
         }
-        void IncrementProgress(float newProgress)
+        void IncrementProgress(float newProgress)                   //function to fill progressbar 
         {
             targetProgress = slider.value + newProgress;
 
@@ -100,7 +95,6 @@ namespace ShopSystem
         }
 
         //Animation for box cathcing
-
         void PickUpBoxAnim(Vector3 _initial, Action onComplete)
         {
             Vector3 targetPos = new Vector3(target.position.x, target.position.y + 1, target.position.z - 2);
@@ -123,11 +117,11 @@ namespace ShopSystem
             Destroy(obj.gameObject);
         }
         
-        public void UpdateCircleRadius()
+        public void UpdateCircleRadius()                            //if the player bought an upgrade, the radius of the circle is updated
         {
             sphereCollider.transform.localScale = new Vector3(fieldOfPickup, fieldOfPickup, fieldOfPickup);
         }
-        private void OnDrawGizmos()            //draw fizmos in editor
+        private void OnDrawGizmos()                                 //draw fizmos in editor
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, fieldOfPickup);

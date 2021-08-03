@@ -4,6 +4,8 @@ ScriptsOnlyBuild:
     - CameraFolow
     - CameraZoom
     - FixedJoystick
+    - ItemCost
+    - NotificationManager
     - PlayerController
     - Pointer
     - ShopSystem.PickupTrash
@@ -117,123 +119,127 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11436}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11438}
+      Script: {instanceID: 11468}
     - Class: 114
-      Script: {instanceID: 11440}
+      Script: {instanceID: 11470}
     - Class: 114
-      Script: {instanceID: 11442}
+      Script: {instanceID: 11472}
     - Class: 114
-      Script: {instanceID: 11444}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11446}
+      Script: {instanceID: 11476}
     - Class: 114
-      Script: {instanceID: 11448}
+      Script: {instanceID: 11478}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11480}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11638}
     - Class: 114
-      Script: {instanceID: 11612}
+      Script: {instanceID: 11644}
     - Class: 114
-      Script: {instanceID: 11726}
+      Script: {instanceID: 11758}
     - Class: 114
-      Script: {instanceID: 11748}
+      Script: {instanceID: 11782}
     - Class: 114
-      Script: {instanceID: 11916}
+      Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 11974}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12148}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12150}
+      Script: {instanceID: 12196}
     - Class: 114
-      Script: {instanceID: 12512}
+      Script: {instanceID: 12564}
     - Class: 114
-      Script: {instanceID: 12580}
+      Script: {instanceID: 12634}
     - Class: 114
-      Script: {instanceID: 12708}
+      Script: {instanceID: 12766}
     - Class: 114
-      Script: {instanceID: 12734}
+      Script: {instanceID: 12794}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 12834}
     - Class: 114
-      Script: {instanceID: 12830}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 13056}
+      Script: {instanceID: 13128}
     - Class: 114
-      Script: {instanceID: 13082}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13176}
     - Class: 114
-      Script: {instanceID: 13160}
+      Script: {instanceID: 13238}
     - Class: 114
-      Script: {instanceID: 13268}
+      Script: {instanceID: 13350}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 13384}
     - Class: 114
-      Script: {instanceID: 13344}
+      Script: {instanceID: 13426}
     - Class: 114
-      Script: {instanceID: 13430}
+      Script: {instanceID: 13518}
     - Class: 114
-      Script: {instanceID: 13554}
+      Script: {instanceID: 13646}
     - Class: 114
-      Script: {instanceID: 13580}
+      Script: {instanceID: 13672}
     - Class: 114
-      Script: {instanceID: 13732}
+      Script: {instanceID: 13786}
     - Class: 114
-      Script: {instanceID: 13878}
+      Script: {instanceID: 13826}
     - Class: 114
-      Script: {instanceID: 13946}
+      Script: {instanceID: 13972}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 14042}
     - Class: 114
-      Script: {instanceID: 13966}
+      Script: {instanceID: 14046}
     - Class: 114
-      Script: {instanceID: 13974}
+      Script: {instanceID: 14062}
     - Class: 114
-      Script: {instanceID: 14086}
+      Script: {instanceID: 14070}
     - Class: 114
-      Script: {instanceID: 14116}
+      Script: {instanceID: 14188}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14218}
     - Class: 114
-      Script: {instanceID: 14156}
+      Script: {instanceID: 14252}
     - Class: 114
-      Script: {instanceID: 14372}
+      Script: {instanceID: 14262}
     - Class: 114
-      Script: {instanceID: 14482}
+      Script: {instanceID: 14480}
     - Class: 114
-      Script: {instanceID: 14492}
+      Script: {instanceID: 14592}
     - Class: 114
-      Script: {instanceID: 14516}
+      Script: {instanceID: 14602}
     - Class: 114
-      Script: {instanceID: 14558}
+      Script: {instanceID: 14626}
     - Class: 114
-      Script: {instanceID: 14812}
+      Script: {instanceID: 14670}
     - Class: 114
-      Script: {instanceID: 14862}
+      Script: {instanceID: 14928}
     - Class: 114
-      Script: {instanceID: 15006}
+      Script: {instanceID: 14978}
     - Class: 114
-      Script: {instanceID: 15050}
+      Script: {instanceID: 15126}
     - Class: 114
-      Script: {instanceID: 15096}
+      Script: {instanceID: 15170}
     - Class: 114
-      Script: {instanceID: 15264}
+      Script: {instanceID: 15216}
     - Class: 114
-      Script: {instanceID: 15266}
+      Script: {instanceID: 15390}
     - Class: 114
-      Script: {instanceID: 15296}
+      Script: {instanceID: 15392}
     - Class: 114
-      Script: {instanceID: 15324}
-    - Class: 114
-      Script: {instanceID: 15358}
-    - Class: 114
-      Script: {instanceID: 15448}
+      Script: {instanceID: 15426}
     - Class: 114
       Script: {instanceID: 15454}
+    - Class: 114
+      Script: {instanceID: 15490}
+    - Class: 114
+      Script: {instanceID: 15580}
+    - Class: 114
+      Script: {instanceID: 15586}
+    - Class: 114
+      Script: {instanceID: 34734}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -559,6 +565,12 @@ ScriptsOnlyBuild:
     className: PostProcessProfile
   - hash:
       serializedVersion: 2
+      Hash: 1faa9935de48c0e500bbd56db4407c67
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MeshCombiner
+  - hash:
+      serializedVersion: 2
       Hash: bc2ce8361b5dfb73990d80f614506a9f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -637,6 +649,12 @@ ScriptsOnlyBuild:
     className: GeneralEasingTypes
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.Notifications.Android.dll
+    namespaceName: Unity.Notifications.Android
+    className: AndroidReceivedNotificationMainThreadDispatcher
+  - hash:
+      serializedVersion: 2
       Hash: 1103fb0758976355cdf9b7d5ce9cb7e0
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -713,6 +731,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: WarpTextExample
+  - hash:
+      serializedVersion: 2
+      Hash: e033d3a34c6465c4e895d4cb3bae2a1b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VibrationExample
   - hash:
       serializedVersion: 2
       Hash: 7e6ed836cbaa230e56d6a2bbae1b9bb5
@@ -889,7 +913,7 @@ ScriptsOnlyBuild:
     className: VertexJitter
   - hash:
       serializedVersion: 2
-      Hash: 64085cdba3cb073d77526979b77116e8
+      Hash: 7e5bd950bc30d16d8b1a1e07bafcd7de
     assemblyName: Assembly-CSharp.dll
     namespaceName: ShopSystem
     className: PickupTrash
@@ -995,6 +1019,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerWidget
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NotificationManager
   - hash:
       serializedVersion: 2
       Hash: f050e4ebd311386367bb1906f9218b01
@@ -1163,6 +1193,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Experimental.Rendering.Universal
     className: PixelPerfectCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.Notifications.iOS.dll
+    namespaceName: Unity.Notifications.iOS
+    className: iOSNotificationsWrapper
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1631,7 +1667,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: f33eec4f3c8d0cf69ed23042efa617f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemCost
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/mmari/Desktop/ProjectAPK/Walle.apk
+  playerPath: C:/Users/mmari/Desktop/ProjectAPK/Deliver.apk

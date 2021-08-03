@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPickup:
-  - {fileID: 3647762964801647363, guid: 0ac35404a73e08c458aa380a4178e301, type: 3}
   - {fileID: 3647762964801647363, guid: 4b4234d25c3d4804a9a4c4c3574cae2c, type: 3}
+  - {fileID: 3647762964801647363, guid: 0ac35404a73e08c458aa380a4178e301, type: 3}
   - {fileID: 3647762964801647363, guid: 49b3a551d75419f46b2c62255fe1da84, type: 3}
   - {fileID: 3647762964801647363, guid: 3945780acf886b640b742facb667201e, type: 3}
   timeToRespawn: 3
