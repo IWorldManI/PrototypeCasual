@@ -8,10 +8,21 @@ namespace ShopSystem
     {
         [SerializeField] private float rotSpeed;
         [SerializeField] private Vector3 rotDirection;
+        bool workCoroutine=true;
 
-        void FixedUpdate()
+        private void Start()
         {
-            transform.Rotate(rotDirection.x, rotSpeed * Time.deltaTime, rotDirection.z, Space.Self);
+            StartCoroutine(rotatorUpdate());
+        }
+       
+        IEnumerator rotatorUpdate()
+        {
+            while (workCoroutine)
+            {
+                transform.Rotate(rotDirection.x, rotSpeed * Time.fixedDeltaTime, rotDirection.z, Space.World);
+                yield return new WaitForSeconds(0.06f);
+            }
+            
         }
     }
 

@@ -3,11 +3,13 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CameraFolow
     - CameraZoom
+    - ClosestGround
     - FixedJoystick
     - ItemCost
     - NotificationManager
     - PlayerController
     - Pointer
+    - RunAway
     - ShopSystem.PickupTrash
     - ShopSystem.Rotator
     - ShopSystem.SaveLoadData
@@ -147,99 +149,103 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12192}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 12196}
+      Script: {instanceID: 12194}
     - Class: 114
-      Script: {instanceID: 12564}
+      Script: {instanceID: 12198}
     - Class: 114
-      Script: {instanceID: 12634}
+      Script: {instanceID: 12566}
     - Class: 114
-      Script: {instanceID: 12766}
+      Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 12794}
+      Script: {instanceID: 12768}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12796}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 12894}
     - Class: 114
-      Script: {instanceID: 13154}
+      Script: {instanceID: 13130}
     - Class: 114
-      Script: {instanceID: 13176}
+      Script: {instanceID: 13156}
     - Class: 114
-      Script: {instanceID: 13238}
+      Script: {instanceID: 13178}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13384}
+      Script: {instanceID: 13308}
     - Class: 114
-      Script: {instanceID: 13426}
+      Script: {instanceID: 13354}
     - Class: 114
-      Script: {instanceID: 13518}
+      Script: {instanceID: 13388}
     - Class: 114
-      Script: {instanceID: 13646}
+      Script: {instanceID: 13430}
     - Class: 114
-      Script: {instanceID: 13672}
+      Script: {instanceID: 13522}
     - Class: 114
-      Script: {instanceID: 13786}
+      Script: {instanceID: 13650}
     - Class: 114
-      Script: {instanceID: 13826}
+      Script: {instanceID: 13676}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13746}
     - Class: 114
-      Script: {instanceID: 14042}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 14046}
+      Script: {instanceID: 13832}
     - Class: 114
-      Script: {instanceID: 14062}
+      Script: {instanceID: 13978}
     - Class: 114
-      Script: {instanceID: 14070}
+      Script: {instanceID: 14048}
     - Class: 114
-      Script: {instanceID: 14188}
+      Script: {instanceID: 14052}
     - Class: 114
-      Script: {instanceID: 14218}
+      Script: {instanceID: 14068}
     - Class: 114
-      Script: {instanceID: 14252}
+      Script: {instanceID: 14076}
     - Class: 114
-      Script: {instanceID: 14262}
+      Script: {instanceID: 14194}
     - Class: 114
-      Script: {instanceID: 14480}
+      Script: {instanceID: 14224}
     - Class: 114
-      Script: {instanceID: 14592}
+      Script: {instanceID: 14258}
     - Class: 114
-      Script: {instanceID: 14602}
+      Script: {instanceID: 14268}
     - Class: 114
-      Script: {instanceID: 14626}
+      Script: {instanceID: 14486}
     - Class: 114
-      Script: {instanceID: 14670}
+      Script: {instanceID: 14598}
     - Class: 114
-      Script: {instanceID: 14928}
+      Script: {instanceID: 14608}
     - Class: 114
-      Script: {instanceID: 14978}
+      Script: {instanceID: 14632}
     - Class: 114
-      Script: {instanceID: 15126}
+      Script: {instanceID: 14676}
     - Class: 114
-      Script: {instanceID: 15170}
+      Script: {instanceID: 14934}
     - Class: 114
-      Script: {instanceID: 15216}
+      Script: {instanceID: 14984}
     - Class: 114
-      Script: {instanceID: 15390}
+      Script: {instanceID: 15132}
     - Class: 114
-      Script: {instanceID: 15392}
+      Script: {instanceID: 15176}
     - Class: 114
-      Script: {instanceID: 15426}
+      Script: {instanceID: 15222}
     - Class: 114
-      Script: {instanceID: 15454}
+      Script: {instanceID: 15396}
     - Class: 114
-      Script: {instanceID: 15490}
+      Script: {instanceID: 15398}
     - Class: 114
-      Script: {instanceID: 15580}
+      Script: {instanceID: 15432}
+    - Class: 114
+      Script: {instanceID: 15460}
+    - Class: 114
+      Script: {instanceID: 15496}
     - Class: 114
       Script: {instanceID: 15586}
     - Class: 114
-      Script: {instanceID: 34734}
+      Script: {instanceID: 15592}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -250,13 +256,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
-      Script: {instanceID: 0}
-    - Class: 205
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -267,6 +273,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -379,7 +387,7 @@ ScriptsOnlyBuild:
     className: GeneralBasics2d
   - hash:
       serializedVersion: 2
-      Hash: dccd16902d61c2e71ceadf37d992edc1
+      Hash: 2c08d5e1d3cd141ace6649abb0972487
     assemblyName: Assembly-CSharp.dll
     namespaceName: ShopSystem
     className: ShopUI
@@ -527,6 +535,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: bb7208205dba50e05407e0ba29627852
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClosestGround
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -883,6 +897,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: f33eec4f3c8d0cf69ed23042efa617f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemCost
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -913,7 +933,7 @@ ScriptsOnlyBuild:
     className: VertexJitter
   - hash:
       serializedVersion: 2
-      Hash: 7e5bd950bc30d16d8b1a1e07bafcd7de
+      Hash: 99f66c740d3cafd6884c4e462929a2e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: ShopSystem
     className: PickupTrash
@@ -931,7 +951,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 73af54196f42cfc754aed667d8a40c0e
+      Hash: 5791c6dfc0f7e6f356d5532674df4e39
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -949,7 +969,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 9c992170b2a96ff1e0204903c04f5402
+      Hash: 871be2e33bbd94009b9919bac15b32f5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Spawner
@@ -1019,6 +1039,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerWidget
+  - hash:
+      serializedVersion: 2
+      Hash: 526645d51afd46ed877c4cfe2b494738
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RunAway
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1297,7 +1323,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerVector2
   - hash:
       serializedVersion: 2
-      Hash: 06d26f2eab96d4f125f33611d7e7825a
+      Hash: 696f1a24b698b2ce1305315f1467b1f3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pointer
@@ -1667,12 +1693,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: f33eec4f3c8d0cf69ed23042efa617f9
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ItemCost
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

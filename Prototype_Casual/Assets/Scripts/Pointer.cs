@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Pointer : MonoBehaviour
 {
     public Transform target;
     public float distance=2;
-    public Text distText;
+    public TextMeshProUGUI distText;
     int showDistance;
 
     private void Start()

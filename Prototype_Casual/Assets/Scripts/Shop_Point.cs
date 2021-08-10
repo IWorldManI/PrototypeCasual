@@ -14,12 +14,14 @@ public class Shop_Point : MonoBehaviour
 
     [SerializeField] float tweenTime;
     [SerializeField] float tweenScale;
+    bool workCoroutine = true;
 
     public UI_Manager ui_manager;
 
     private void Start()
     {
         Vibration.Init();
+        StartCoroutine(rotatorUpdate());
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -39,11 +41,16 @@ public class Shop_Point : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    IEnumerator rotatorUpdate()
     {
-        circle.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime, Space.Self);
+        while (workCoroutine)
+        {
+            circle.transform.Rotate(0,0, rotationSpeed * Time.fixedDeltaTime,  Space.Self);
+            yield return new WaitForSeconds(0.06f);
+        }
+
     }
-    
+
     public void AnimationShop()
     {
         Instantiate(coinTrade, transform.position,transform.rotation * Quaternion.Euler(-90f,0f,0f));

@@ -5,11 +5,15 @@ using Unity.Notifications.Android;
 
 public class NotificationManager : MonoBehaviour
 {
+    private void Start()
+    {
+        AndroidNotificationCenter.CancelAllNotifications();
+    }
     private void OnApplicationPause(bool pause)
     {
-        SendNotification();
+        SendNotificationSeeLater();
     }
-    void SendNotification()
+    void SendNotificationSeeLater()
     {
         AndroidNotificationCenter.CancelAllDisplayedNotifications();
 
@@ -27,7 +31,7 @@ public class NotificationManager : MonoBehaviour
         notification.Title = "See you later";
         notification.Text = "Your Text";
         notification.LargeIcon = "icon_0";
-        notification.FireTime = System.DateTime.Now.AddSeconds(15);
+        notification.FireTime = System.DateTime.Now.AddSeconds(5);
 
         var id = AndroidNotificationCenter.SendNotification(notification, "channel_id");
 

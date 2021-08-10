@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ShopSystem;
 using System;
+using TMPro;
 
 
 public class PlayerController : MonoBehaviour
@@ -22,11 +23,11 @@ public class PlayerController : MonoBehaviour
     public int dataIndex;
 
     public int trash;
-    public Text trashTotal;
+    public TextMeshProUGUI trashTotal;
 
     private void Start()
     {
-        trashTotal.text = "" + trash;
+        trashTotal.text = "<sprite=1> " + trash;
         rb.GetComponent<Rigidbody>();
     }
     public void SetSkin()

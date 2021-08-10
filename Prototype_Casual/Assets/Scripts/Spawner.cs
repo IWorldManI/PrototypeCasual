@@ -9,6 +9,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] public float timeToRespawn; //mb buy upgrade?
     [SerializeField] private bool spawning=true;
     [SerializeField] private int randomIndex;
+    [SerializeField] float tweenScale;
+    [SerializeField] float tweenTime;
 
     void Start()
     {
@@ -34,10 +36,13 @@ public class Spawner : MonoBehaviour
         var myNewBox = Instantiate(coinPickup[randomIndex], transform.position, Quaternion.identity);
         myNewBox.transform.parent = gameObject.transform;
         spawning = false;
+        //juicy animations during respawn
+        LeanTween.moveY(myNewBox.gameObject, 3, tweenTime).setEasePunch();
+        LeanTween.scale(myNewBox.gameObject, new Vector3(0.5f, 0.5f, 0.5f) * tweenScale, tweenTime).setEasePunch();
     }
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(timeToRespawn = Random.Range(10f,15f));
+        yield return new WaitForSeconds(timeToRespawn = Random.Range(10f,20f));
         SpawnBox();
     }
 }

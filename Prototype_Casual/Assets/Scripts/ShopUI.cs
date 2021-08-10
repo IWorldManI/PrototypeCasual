@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace ShopSystem
 {
@@ -9,8 +10,8 @@ namespace ShopSystem
     {
         public ShopData shopData;
         public GameObject[] characterModels;
-        public Text unlockBtnText, upgradeBtnText, levelText, characterNameText;
-        public Text speedText,accelerarionText,totalCoinsText;
+        public TextMeshProUGUI unlockBtnText, upgradeBtnText, levelText, characterNameText;
+        public TextMeshProUGUI speedText,accelerarionText,totalCoinsText;
         public Button unlockBtn, upgradeBtn, nextBtn, previousBtn;
         public PlayerController player;
         public SaveLoadData saveLoadData;
@@ -31,7 +32,7 @@ namespace ShopSystem
             
             selectedIndex = shopData.selectedIndex;
             currentIndex = selectedIndex;
-            totalCoinsText.text = "" + shopData.cash;
+            totalCoinsText.text = "<sprite=0> " + shopData.cash;
 
             player.dataIndex = currentIndex;
             player.SetSkin();
@@ -57,9 +58,9 @@ namespace ShopSystem
             if (other.gameObject.CompareTag("Player") && player.trash != 0) 
             {
                 shopData.cash += player.trash * priceOfTrash;
-                totalCoinsText.text = "" + shopData.cash;
+                totalCoinsText.text = "<sprite=0> " + shopData.cash;
                 player.trash = 0;
-                player.trashTotal.text = "" + player.trash;
+                player.trashTotal.text = "<sprite=1> " + player.trash;
                 shopPoint.AnimationShop();
                 saveLoadData.SaveData();
             }
@@ -68,7 +69,7 @@ namespace ShopSystem
         }
         public void SetCharacterInfo()
         {
-            totalCoinsText.text = "" + shopData.cash;
+            totalCoinsText.text = "<sprite=0> " + shopData.cash;
             characterNameText.text = shopData.shopItems[currentIndex].ItemName;
             int currentLevel = shopData.shopItems[currentIndex].unlockedLevel;
             levelText.text = "Level: " + (currentLevel + 1);
@@ -132,7 +133,7 @@ namespace ShopSystem
                 if (shopData.cash >= shopData.shopItems[currentIndex].unlockCost)
                 {
                     shopData.cash -= shopData.shopItems[currentIndex].unlockCost;
-                    totalCoinsText.text = "" + shopData.cash;
+                    totalCoinsText.text = "<sprite=0> " + shopData.cash;
                     yesSelected = true;
                     shopData.shopItems[currentIndex].isUnlocked=true;
                     UpgradeBtnStatus();
@@ -162,7 +163,7 @@ namespace ShopSystem
             if (shopData.cash >= shopData.shopItems[currentIndex].characterLevel[nextLevelIndex].unlockCost)
             {
                 shopData.cash -= shopData.shopItems[currentIndex].characterLevel[nextLevelIndex].unlockCost;
-                totalCoinsText.text = "" + shopData.cash;
+                totalCoinsText.text = "<sprite=8> " + shopData.cash;
                 shopData.shopItems[currentIndex].unlockedLevel++;
 
                 if (shopData.shopItems[currentIndex].unlockedLevel < shopData.shopItems[currentIndex].characterLevel.Length - 1)

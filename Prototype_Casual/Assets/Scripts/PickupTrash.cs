@@ -16,10 +16,8 @@ namespace ShopSystem
         [SerializeField] private float targetProgress = 0;
         [SerializeField] float speedOfBoxFly;
         [SerializeField] GameObject boxPrefab;
-        [SerializeField] int priceOfBox;
 
-        
-        
+        [SerializeField] List<GameObject> collidedObj = new List<GameObject>();
 
         private void Start()
         {
@@ -29,28 +27,31 @@ namespace ShopSystem
         }
         private void OnTriggerEnter(Collider other)
         {
-            priceOfBox = other.GetComponent<ItemCost>().boxCost;
+            if (other.CompareTag("PickedUp"))
+            {
+                collidedObj.Add(other.gameObject);
+            }      
         }
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.gameObject.CompareTag("PickedUp") && slider.value < 1)
+            if (other.gameObject.CompareTag("PickedUp") && slider.value < 1 && collidedObj.Count != 0) 
             {
                 IncrementProgress(1f);
                 FadeInCircle();
                 slider.enabled = true;
-                Debug.Log("Pick up");
+                //Debug.Log("Pick up");
+                
             }
-            else if (other.gameObject.CompareTag("PickedUp") && slider.value >= 1)
+            else if (other.gameObject.CompareTag("PickedUp") && slider.value >= 1 && collidedObj.Count != 0)
             {
                 PickUp();
-                Destroy(other.gameObject);
-                FadeOutCircle();
-                PickUpBoxAnim(other.transform.position, () => { player.PickUpAnimation(); Vibration.VibratePop(); }); //after collecting an item, animation and vibration are played
-
-                Debug.Log("Catch up");
+               
+                //Debug.Log("Catch up" + collidedObj[collidedObj.Count - 1].name);
             }
+            
         }
+        
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("PickedUp"))
@@ -58,22 +59,32 @@ namespace ShopSystem
                 slider.value = 0f;
                 FadeOutCircle();
                 slider.enabled = false;
-            }
 
+                for (int i = 0; i < collidedObj.Count; i++)
+                {
+                    collidedObj.RemoveAt(collidedObj.Count - 1);
+                }
+            }
         }
 
 
         public void PickUp()
         {
-            FadeOutCircle();                                        //play fade out animation with LeanTween
+            FadeOutCircle();                                                                    //play fade out animation with LeanTween
 
-            player.trash += priceOfBox;         //add amount of box/trash/something
-            player.trashTotal.text = "" + player.trash;             //update raised items
-            slider.value = 0f;                                      //reset value if player goes away
+            player.trash += collidedObj[collidedObj.Count-1].GetComponent<ItemCost>().boxCost;  //add collected box to player with index "0"
+                                                                                                //remove pickedUp item from list with index "0"
+            player.trashTotal.text = "<sprite=1> " + player.trash;                              //update raised items
+            slider.value = 0f;                                                                  //reset value if player goes away
 
+            PickUpBoxAnim(collidedObj[collidedObj.Count - 1].transform.position, () => { player.PickUpAnimation(); Vibration.VibratePop(); }); //after collecting an item, animation and vibration are played
+
+            Destroy(collidedObj[collidedObj.Count - 1]);
+            collidedObj.RemoveAt(collidedObj.Count - 1);
+            
             //Collider[] objects = Physics.OverlapSphere(transform.position, fieldOfPickup); //test WIP
         }
-
+        
         void FadeInCircle()                                         //fade in animation 
         {
             GameObject child = this.transform.GetChild(0).gameObject;
@@ -99,7 +110,7 @@ namespace ShopSystem
         {
             Vector3 targetPos = new Vector3(target.position.x, target.position.y + 1, target.position.z - 2);
             GameObject _box = Instantiate(boxPrefab,player.transform);
-            Debug.Log(_box.transform);
+            //Debug.Log(_box.transform);
 
             StartCoroutine(MoveBox(_box.transform, _initial, targetPos, onComplete));
         }
@@ -121,10 +132,10 @@ namespace ShopSystem
         {
             sphereCollider.transform.localScale = new Vector3(fieldOfPickup, fieldOfPickup, fieldOfPickup);
         }
-        private void OnDrawGizmos()                                 //draw fizmos in editor
+        private void OnDrawGizmos()                                 //draw gizmos in editor
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, fieldOfPickup);
+            //Gizmos.color = Color.red;
+            //Gizmos.DrawWireSphere(transform.position, fieldOfPickup);
         }
 
     }
