@@ -23,6 +23,9 @@ namespace ShopSystem
 
         private int currentIndex = 0;
         private int selectedIndex = 0;
+
+        public GameObject coinText;
+        public GameObject boxText;
         
         
         
@@ -57,10 +60,12 @@ namespace ShopSystem
         {
             if (other.gameObject.CompareTag("Player") && player.trash != 0) 
             {
+                LeanTween.scale(coinText, new Vector3(1.3f, 1.3f, 1.3f), 0.8f).setEasePunch();  //mb need fix
                 shopData.cash += player.trash * priceOfTrash;
                 totalCoinsText.text = "<sprite=0> " + shopData.cash;
                 player.trash = 0;
                 player.trashTotal.text = "<sprite=1> " + player.trash;
+                LeanTween.scale(boxText, new Vector3(1.2f, 1.2f, 1.2f), 0.8f).setEasePunch();  //mb need fix
                 shopPoint.AnimationShop();
                 saveLoadData.SaveData();
             }

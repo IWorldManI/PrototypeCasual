@@ -387,7 +387,7 @@ ScriptsOnlyBuild:
     className: GeneralBasics2d
   - hash:
       serializedVersion: 2
-      Hash: 2c08d5e1d3cd141ace6649abb0972487
+      Hash: 1ce2dccaa67d6ba20b9f3e069971562b
     assemblyName: Assembly-CSharp.dll
     namespaceName: ShopSystem
     className: ShopUI
@@ -933,7 +933,7 @@ ScriptsOnlyBuild:
     className: VertexJitter
   - hash:
       serializedVersion: 2
-      Hash: 99f66c740d3cafd6884c4e462929a2e3
+      Hash: fa252c231f72e6f37bb5c3a9940cf6e7
     assemblyName: Assembly-CSharp.dll
     namespaceName: ShopSystem
     className: PickupTrash
@@ -1041,7 +1041,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerWidget
   - hash:
       serializedVersion: 2
-      Hash: 526645d51afd46ed877c4cfe2b494738
+      Hash: 44bd6b29f90293c8b4a2d39d62eb3abd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RunAway

@@ -16,6 +16,7 @@ namespace ShopSystem
         [SerializeField] private float targetProgress = 0;
         [SerializeField] float speedOfBoxFly;
         [SerializeField] GameObject boxPrefab;
+        public GameObject boxText;
 
         [SerializeField] List<GameObject> collidedObj = new List<GameObject>();
 
@@ -76,6 +77,8 @@ namespace ShopSystem
                                                                                                 //remove pickedUp item from list with index "0"
             player.trashTotal.text = "<sprite=1> " + player.trash;                              //update raised items
             slider.value = 0f;                                                                  //reset value if player goes away
+
+            LeanTween.scale(boxText, new Vector3(1.2f, 1.2f, 1.2f), 0.8f).setEasePunch();       //mb need fix
 
             PickUpBoxAnim(collidedObj[collidedObj.Count - 1].transform.position, () => { player.PickUpAnimation(); Vibration.VibratePop(); }); //after collecting an item, animation and vibration are played
 
