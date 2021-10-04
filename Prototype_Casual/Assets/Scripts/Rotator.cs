@@ -24,6 +24,10 @@ namespace ShopSystem
             }
             
         }
+        public void startCor()
+        {
+            StartCoroutine(rotatorUpdate());
+        }
     }
 
 }

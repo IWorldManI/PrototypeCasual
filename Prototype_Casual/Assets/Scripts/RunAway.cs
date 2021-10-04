@@ -7,6 +7,7 @@ public class RunAway : MonoBehaviour
 {
     public NavMeshAgent self;
     public float distanceToRun;
+
     private void Start()
     {
         self = GetComponent<NavMeshAgent>();
@@ -28,8 +29,10 @@ public class RunAway : MonoBehaviour
     IEnumerator MovingAway(Vector3 otherTransform)
     {
         yield return new WaitForSeconds(.3f);
+        /*
         Vector3 dirToPlayer = transform.position - otherTransform;
         Vector3 newPos = transform.position + dirToPlayer;
         self.SetDestination(newPos);
+        */
     }
 }

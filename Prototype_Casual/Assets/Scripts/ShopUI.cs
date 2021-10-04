@@ -24,8 +24,7 @@ namespace ShopSystem
         private int currentIndex = 0;
         private int selectedIndex = 0;
 
-        public GameObject coinText;
-        public GameObject boxText;
+        public UI_Manager ui_manager;
         
         
         
@@ -58,14 +57,24 @@ namespace ShopSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player") && player.trash != 0) 
+            if (other.gameObject.CompareTag("Player") && player.trash != 0)
             {
-                LeanTween.scale(coinText, new Vector3(1.3f, 1.3f, 1.3f), 0.8f).setEasePunch();  //mb need fix
+                ui_manager.AnimatedTextScaleCoin();
                 shopData.cash += player.trash * priceOfTrash;
                 totalCoinsText.text = "<sprite=0> " + shopData.cash;
                 player.trash = 0;
                 player.trashTotal.text = "<sprite=1> " + player.trash;
-                LeanTween.scale(boxText, new Vector3(1.2f, 1.2f, 1.2f), 0.8f).setEasePunch();  //mb need fix
+                ui_manager.AnimatedTextScaleBox();
+                shopPoint.AnimationShop();
+                saveLoadData.SaveData();
+            }
+            else if (other.gameObject.CompareTag("NPC") && other.GetComponent<NpcPatrolSimple>().npcTrash != 0)  //npc sells boxes need fix
+            {
+                shopData.cash += other.GetComponent<NpcPatrolSimple>().npcTrash * priceOfTrash;
+                totalCoinsText.text = "<sprite=0> " + shopData.cash;
+                other.GetComponent<NpcPatrolSimple>().npcTrash = 0;
+                ui_manager.AnimatedTextScaleCoin();
+                ui_manager.AnimatedTextScaleBox();
                 shopPoint.AnimationShop();
                 saveLoadData.SaveData();
             }
@@ -83,6 +92,7 @@ namespace ShopSystem
             if(player.dataIndex==currentIndex)
             {
                 player.speed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed (Fixed)
+                player.maxSpeed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed (Fixed)
                 pickupCircle.fieldOfPickup = shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
                 pickupCircle.UpdateCircleRadius();
             }
@@ -173,7 +183,7 @@ namespace ShopSystem
 
                 if (shopData.shopItems[currentIndex].unlockedLevel < shopData.shopItems[currentIndex].characterLevel.Length - 1)
                 {
-                    upgradeBtnText.text = "UpgradeCost" + shopData.shopItems[currentIndex].characterLevel[nextLevelIndex + 1].unlockCost;
+                    upgradeBtnText.text = "Upgrade \n <sprite=0>" + shopData.shopItems[currentIndex].characterLevel[nextLevelIndex + 1].unlockCost;
                 }
                 else
                 {
@@ -193,7 +203,7 @@ namespace ShopSystem
             else
             {
                 unlockBtn.interactable = true;
-                unlockBtnText.text = "Cost" + shopData.shopItems[currentIndex].unlockCost;
+                unlockBtnText.text = "Cost \n <sprite=0>" + shopData.shopItems[currentIndex].unlockCost;
             }
         }
         private void UpgradeBtnStatus()
@@ -204,7 +214,7 @@ namespace ShopSystem
                 {
                     int nextLevelIndex = shopData.shopItems[currentIndex].unlockedLevel + 1;
                     upgradeBtn.interactable = true;
-                    upgradeBtnText.text = "UpgradeCost" + shopData.shopItems[currentIndex].characterLevel[nextLevelIndex].unlockCost;
+                    upgradeBtnText.text = "Upgrade \n <sprite=0>" + shopData.shopItems[currentIndex].characterLevel[nextLevelIndex].unlockCost;
                 }
                 else
                 {

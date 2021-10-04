@@ -17,6 +17,11 @@ namespace ShopSystem
         [SerializeField] float speedOfBoxFly;
         [SerializeField] GameObject boxPrefab;
         public GameObject boxText;
+        public GameObject uiFactorx2;
+        [SerializeField] public bool x2factorEnabled=false;
+        public CountDownTimer timer;
+
+        public AudioSource soundFX;
 
         [SerializeField] List<GameObject> collidedObj = new List<GameObject>();
 
@@ -72,16 +77,35 @@ namespace ShopSystem
         public void PickUp()
         {
             FadeOutCircle();                                                                    //play fade out animation with LeanTween
-
-            player.trash += collidedObj[collidedObj.Count-1].GetComponent<ItemCost>().boxCost;  //add collected box to player with index "0"
+            if (x2factorEnabled)
+            {
+                player.trash += collidedObj[collidedObj.Count - 1].GetComponent<ItemCost>().boxCost * 2;
+            }
+            else
+            {
+                player.trash += collidedObj[collidedObj.Count - 1].GetComponent<ItemCost>().boxCost;  //add collected box to player with index "0"
+            }
+            
                                                                                                 //remove pickedUp item from list with index "0"
             player.trashTotal.text = "<sprite=1> " + player.trash;                              //update raised items
             slider.value = 0f;                                                                  //reset value if player goes away
 
             LeanTween.scale(boxText, new Vector3(1.2f, 1.2f, 1.2f), 0.8f).setEasePunch();       //mb need fix
 
-            PickUpBoxAnim(collidedObj[collidedObj.Count - 1].transform.position, () => { player.PickUpAnimation(); Vibration.VibratePop(); }); //after collecting an item, animation and vibration are played
+            PickUpBoxAnim(collidedObj[collidedObj.Count - 1].transform.position, () => { 
+                player.PickUpAnimation(); 
+                if(PlayerPrefs.GetInt("VibroEnabled", 1)==1)
+                    Vibration.VibratePop();
+                soundFX.pitch= UnityEngine.Random.Range(0.8f, 1.2f);
+                soundFX.Play();
+            }); //after collecting an item, animation and vibration are played
 
+            if (collidedObj[collidedObj.Count - 1].GetComponent<ItemCost>().boxCost == 10)  //timer x2 boxes
+            {
+                uiFactorx2.SetActive(true);
+                x2factorEnabled = true;
+                timer.secondsLeft = 30;
+            }
             Destroy(collidedObj[collidedObj.Count - 1]);
             collidedObj.RemoveAt(collidedObj.Count - 1);
             

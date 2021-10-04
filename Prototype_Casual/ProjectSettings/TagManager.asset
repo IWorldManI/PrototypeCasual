@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickedUp
   - Zone
+  - NPC
   layers:
   - Default
   - TransparentFX

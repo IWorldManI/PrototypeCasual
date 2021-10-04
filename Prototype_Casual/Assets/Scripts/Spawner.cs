@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] GameObject[] coinPickup;
     [SerializeField] public float timeToRespawn; //mb buy upgrade?
-    [SerializeField] private bool spawning=true;
+    [SerializeField] private bool spawning = true;
     [SerializeField] private int randomIndex;
     [SerializeField] float tweenScale;
     [SerializeField] float tweenTime;
@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         SpawnBox();
-        
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -27,6 +27,13 @@ public class Spawner : MonoBehaviour
                 spawning = true;
             }
             
+        }else if (other.CompareTag("NPC") && !spawning)
+        {
+            if (transform.childCount == 0)
+            {
+                StartCoroutine(Timer());
+                spawning = true;
+            }
         }
     }
     void SpawnBox()

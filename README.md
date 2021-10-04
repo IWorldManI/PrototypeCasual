@@ -35,17 +35,25 @@ What is not implemented?
 
 
 ## Download 
-You can download the original game on:
+After finishing development, you can download the original game on:
 - [Android](WIP) 
 - [iOS](WIP)
 - [HTML5](WIP)
 
 ## Screenshots
 <p align="center">
-  <img src="https://sun9-82.userapi.com/impg/KeFJA7lV-EbbODg5I14tyi38JFgGw2pUrKppXw/Q-JT8X5Dtog.jpg?size=410x914&quality=96&sign=8841ec0ead0358ab2d65113c28cdb9ac&type=album" />
+  <img src="https://sun9-55.userapi.com/impg/Cyj0xYPwF20o48dXoikRJFmq9bn9foiskPbR4w/_PwQ2-QysDw.jpg?size=423x901&quality=96&sign=785c76412905f085d52f21a73bbddbb4&type=album" />
 </p>
 
 <p align="center">
-  <img src="https://sun9-42.userapi.com/impg/0BAxlIi1shc5bIUc8IyttutQJntph8cezwy6SQ/5wQ4RIKNGPo.jpg?size=431x908&quality=96&sign=b30cd01ca1313406edfcb6641594dc7a&type=album" />
+  <img src="https://sun9-8.userapi.com/impg/v3uvjQxinvo4ITAfJYA6jmt_riJO6olJgteAXA/oAn1Jr2nZ3w.jpg?size=423x915&quality=96&sign=19d0eb42a3e0fd3f1324db92e6e6fd10&type=album" />
+</p>
+
+<p align="center">
+  <img src="https://sun9-15.userapi.com/impg/GaR4K96nOTN-iBiRduc869-mej5USQQMd0lNCg/avHCR9hFDiQ.jpg?size=418x908&quality=96&sign=2ce4cca42ed26e377fc943a408acfedd&type=album" />
+</p>
+
+<p align="center">
+  <img src="https://sun9-72.userapi.com/impg/SvOCAq5HQQVdgbpgDcFnSEfahFWkYlbUK0UGaw/070wzv1lPvQ.jpg?size=426x915&quality=96&sign=9c7e113237d88efeca2deced234acc6c&type=album" />
 </p>
 Project creation date July 4 2021
