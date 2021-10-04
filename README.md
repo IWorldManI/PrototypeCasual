@@ -41,6 +41,7 @@ After finishing development, you can download the original game on:
 - [HTML5](WIP)
 
 ## Screenshots
+
 <p align="center">
   <img src="https://sun9-55.userapi.com/impg/Cyj0xYPwF20o48dXoikRJFmq9bn9foiskPbR4w/_PwQ2-QysDw.jpg?size=423x901&quality=96&sign=785c76412905f085d52f21a73bbddbb4&type=album" />
 </p>
