@@ -35,7 +35,7 @@ namespace ShopSystem
         {
             if (other.CompareTag("PickedUp"))
             {
-                collidedObj.Add(other.gameObject);                          //when colliding with a box, add it to the list
+                collidedObj.Add(other.gameObject);
             }      
         }
 
@@ -58,7 +58,7 @@ namespace ShopSystem
             
         }
         
-        private void OnTriggerExit(Collider other)                          
+        private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("PickedUp"))
             {
@@ -68,7 +68,7 @@ namespace ShopSystem
 
                 for (int i = 0; i < collidedObj.Count; i++)
                 {
-                    collidedObj.RemoveAt(collidedObj.Count - 1);              //if the player moves away from the box, remove it from the list from the end
+                    collidedObj.RemoveAt(collidedObj.Count - 1);
                 }
             }
         }
@@ -92,20 +92,19 @@ namespace ShopSystem
 
             LeanTween.scale(boxText, new Vector3(1.2f, 1.2f, 1.2f), 0.8f).setEasePunch();       //mb need fix
 
-            PickUpBoxAnim(collidedObj[collidedObj.Count - 1].transform.position, () => 
-            { 
+            PickUpBoxAnim(collidedObj[collidedObj.Count - 1].transform.position, () => { 
                 player.PickUpAnimation(); 
-                if(PlayerPrefs.GetInt("VibroEnabled", 1)==1)                                    //vibration check from settings
+                if(PlayerPrefs.GetInt("VibroEnabled", 1)==1)
                     Vibration.VibratePop();
-                soundFX.pitch= UnityEngine.Random.Range(0.8f, 1.2f);                            //add sound pitch and then play 
+                soundFX.pitch= UnityEngine.Random.Range(0.8f, 1.2f);
                 soundFX.Play();
-            } );                                                                                //after collecting an item, animation and vibration are played
+            }); //after collecting an item, animation and vibration are played
 
-            if (collidedObj[collidedObj.Count - 1].GetComponent<ItemCost>().boxCost == 10)      //if we select a package with a multiplier утфиду timer x2 boxes on 30 seconds
+            if (collidedObj[collidedObj.Count - 1].GetComponent<ItemCost>().boxCost == 10)  //timer x2 boxes
             {
                 uiFactorx2.SetActive(true);
                 x2factorEnabled = true;
-                timer.secondsLeft = 30;                                                         //start count down timer 
+                timer.secondsLeft = 30;
             }
             Destroy(collidedObj[collidedObj.Count - 1]);
             collidedObj.RemoveAt(collidedObj.Count - 1);
@@ -133,7 +132,7 @@ namespace ShopSystem
             }
         }
 
-        //Animation for box cathcing 
+        //Animation for box cathcing
         void PickUpBoxAnim(Vector3 _initial, Action onComplete)
         {
             Vector3 targetPos = new Vector3(target.position.x, target.position.y + 1, target.position.z - 2);
