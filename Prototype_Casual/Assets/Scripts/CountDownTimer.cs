@@ -15,11 +15,11 @@ namespace ShopSystem
 
         private void Start()
         {
-            textDisplay.GetComponent<TextMeshProUGUI>().text = "00:" + secondsLeft;
+            textDisplay.GetComponent<TextMeshProUGUI>().text = "00:" + secondsLeft;  //initialize the text
         }
         private void FixedUpdate()
         {
-            if (takingAway == false && secondsLeft > 0)
+            if (takingAway == false && secondsLeft > 0)     //сhecking whether the countdown and the remaining time are running
             {
                 pt.x2factorEnabled = true;
                 StartCoroutine(Timer());
