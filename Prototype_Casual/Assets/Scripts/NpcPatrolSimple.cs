@@ -42,7 +42,7 @@ public class NpcPatrolSimple : MonoBehaviour
         }
         
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)                                     //change target if collide with other npc or player
     {
         if (other.CompareTag("NPC")|| other.CompareTag("Player"))
         {
@@ -107,7 +107,7 @@ public class NpcPatrolSimple : MonoBehaviour
         }
     }
 
-    private void SetDestination()
+    private void SetDestination()                                                       //directs npc to target position
     {
         if (_patrolPoints != null)
         {
@@ -116,7 +116,7 @@ public class NpcPatrolSimple : MonoBehaviour
             _travaling = true;
         }
     }
-    private void ChangePatrolPoint()
+    private void ChangePatrolPoint()                                                    //change point to patrol
     {
         if (UnityEngine.Random.Range(0f, 1f) <= _switchProbability) 
         {

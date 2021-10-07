@@ -8,7 +8,7 @@ public class BusinessBuilding : MonoBehaviour
 {
     public Renderer circle;
     [SerializeField] float fillCircle = 360;
-    [SerializeField] float fillSpeed=1f; //0,1f faster, 1f optimized
+    [SerializeField] float fillSpeed=1f;        //0,1f faster, 1f optimized value
     [SerializeField] public int boxes;
     public PlayerController player;
     public UI_Manager uimanager;
@@ -26,7 +26,7 @@ public class BusinessBuilding : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)                                 //show bussiness ui
     {
         if (other.CompareTag("Zone"))
         {
@@ -43,7 +43,7 @@ public class BusinessBuilding : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)                                  //update the number of collected boxes
     {
         if (other.CompareTag("Zone"))
         {
@@ -66,30 +66,30 @@ public class BusinessBuilding : MonoBehaviour
         circle.material.SetFloat("_Arc1", fillCircle);
         boxes += 1;
     }
-    public void CollectBoxBussiness()
+    public void CollectBoxBussiness()                                           //this function is triggered by a button and transfers all earned boxes to the player
     {
         player.trash += boxes;
-        player.trashTotal.text = "<sprite=1> " + player.trash;
-        boxes = 0;
-        fillCircle = 360;
-        uimanager.AnimatedTextScaleBox();
+        player.trashTotal.text = "<sprite=1> " + player.trash;                  //update player box text
+        boxes = 0;                                                              
+        fillCircle = 360;                                                       //clear circle fill
+        uimanager.AnimatedTextScaleBox();                                       //text scale animation
         boxCount.text = "<sprite=1>" + boxes;
-        if (fillCircle == 0)
+        if (fillCircle == 0)                                                    
         {
-            StartCoroutine(FillCircleFunction());
+            StartCoroutine(FillCircleFunction());                               
         }
     }
-    public void BuyBussiness()
+    public void BuyBussiness()                                                  //function for buying a business
     {
         if (shop.shopData.cash >= 5000)
         {
-            PlayerPrefs.SetInt("Business_0", 1);
             shop.shopData.cash -= 5000;
             shop.totalCoinsText.text = "<sprite=0> " + shop.shopData.cash;
             shop.saveLoadData.SaveData();
-            buyBussiness.SetActive(false);
-            collectBoxesInBussiness.SetActive(true);
-            StartCoroutine(FillCircleFunction());
+            buyBussiness.SetActive(false);                                      //disable buy business button
+            collectBoxesInBussiness.SetActive(true);                            //turn on the button for collecting earned boxes
+            PlayerPrefs.SetInt("Business_0", 1);                                //we save the purchase
+            StartCoroutine(FillCircleFunction());                               //this coroutine starts collecting boxes in business
         }
         else
         {

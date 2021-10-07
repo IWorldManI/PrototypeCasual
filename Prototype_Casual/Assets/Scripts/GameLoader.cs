@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class GameLoader : MonoBehaviour
 {
-    public int sceneID=1;
+    public int sceneID=1;                                               
     public Image loadingImg;
     public TextMeshProUGUI progressText;
-    private void Start()
+    private void Start()                                                //start coroutine from start app
     {
         StartCoroutine(AsyncLoad());
     }
-    IEnumerator AsyncLoad()
+    IEnumerator AsyncLoad()                                             //async load scene with progressbar 
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
         while (!operation.isDone)

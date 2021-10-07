@@ -30,23 +30,23 @@ namespace ShopSystem
         
         private void Start()
         {
-            saveLoadData.Initialize();
+            saveLoadData.Initialize();                                      //initialize save system
             
             selectedIndex = shopData.selectedIndex;
             currentIndex = selectedIndex;
             totalCoinsText.text = "<sprite=0> " + shopData.cash;
 
             player.dataIndex = currentIndex;
-            player.SetSkin();
-            
-            SetCharacterInfo();
+            player.SetSkin();                                               //activate current car model and disable other
 
-            unlockBtn.onClick.AddListener(()=>UnlockSelectBtnMethcod());
+            SetCharacterInfo();                                             //update coins,car settings, text coins and etc.
+
+            unlockBtn.onClick.AddListener(()=>UnlockSelectBtnMethcod());    //connect buttons to functions 
             upgradeBtn.onClick.AddListener(()=>UpgradeBtnMethcod());
             nextBtn.onClick.AddListener(()=>NextBtnMethcod());
             previousBtn.onClick.AddListener(()=>PreviousBtnMethcod());
 
-            characterModels[currentIndex].SetActive(true);
+            characterModels[currentIndex].SetActive(true);                  //activate current model from shop
             if (currentIndex == 0) previousBtn.interactable = false;
             if (currentIndex == shopData.shopItems.Length - 1) nextBtn.interactable = false;
 
@@ -55,20 +55,20 @@ namespace ShopSystem
 
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)                         //there is a sale of boxes
         {
             if (other.gameObject.CompareTag("Player") && player.trash != 0)
             {
-                ui_manager.AnimatedTextScaleCoin();
-                shopData.cash += player.trash * priceOfTrash;
+                ui_manager.AnimatedTextScaleCoin();                         //add animation to sells
+                shopData.cash += player.trash * priceOfTrash;               //at what price we sell boxes, can be customized in the future
                 totalCoinsText.text = "<sprite=0> " + shopData.cash;
-                player.trash = 0;
+                player.trash = 0;                                           
                 player.trashTotal.text = "<sprite=1> " + player.trash;
-                ui_manager.AnimatedTextScaleBox();
-                shopPoint.AnimationShop();
-                saveLoadData.SaveData();
+                ui_manager.AnimatedTextScaleBox();                          //text animation for juiciness
+                shopPoint.AnimationShop();                                  //shop model animation
+                saveLoadData.SaveData();                                    //save player progress
             }
-            else if (other.gameObject.CompareTag("NPC") && other.GetComponent<NpcPatrolSimple>().npcTrash != 0)  //npc sells boxes need fix
+            else if (other.gameObject.CompareTag("NPC") && other.GetComponent<NpcPatrolSimple>().npcTrash != 0)  //npc sells boxes with animation (mb need fix)
             {
                 shopData.cash += other.GetComponent<NpcPatrolSimple>().npcTrash * priceOfTrash;
                 totalCoinsText.text = "<sprite=0> " + shopData.cash;
@@ -91,10 +91,10 @@ namespace ShopSystem
             accelerarionText.text = "Zone: " + shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
             if(player.dataIndex==currentIndex)
             {
-                player.speed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed (Fixed)
-                player.maxSpeed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed; //upgrade character speed (Fixed)
+                player.speed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed;                      //upgrade character speed (Fixed)
+                player.maxSpeed = shopData.shopItems[currentIndex].characterLevel[currentLevel].speed;                   //upgrade character maxspeed (Fixed)
                 pickupCircle.fieldOfPickup = shopData.shopItems[currentIndex].characterLevel[currentLevel].acceleration;
-                pickupCircle.UpdateCircleRadius();
+                pickupCircle.UpdateCircleRadius();                                                                       //acceleration = Circle radius
             }
             //player.speed = shopData.shopItems[selectedIndex].characterLevel[currentLevel].speed; //update info of speed car
 
@@ -170,7 +170,7 @@ namespace ShopSystem
                 SetCharacterInfo(); //update speed
             }
         }
-        private void UpgradeBtnMethcod()
+        private void UpgradeBtnMethcod()    
         {
             saveLoadData.SaveData();
             int nextLevelIndex = shopData.shopItems[currentIndex].unlockedLevel + 1;

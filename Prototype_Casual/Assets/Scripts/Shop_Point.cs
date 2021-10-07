@@ -25,7 +25,7 @@ public class Shop_Point : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Zone"))
+        if (other.gameObject.CompareTag("Zone"))         //zone or player?
         {
             ui_manager.ShopButtonShow();
             //shopButton.gameObject.SetActive(true);
